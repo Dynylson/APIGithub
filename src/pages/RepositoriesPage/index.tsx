@@ -1,7 +1,18 @@
+import Filter from './Filter'
+import Profile from './Profile'
+
+import { Container, Sidebar, Main } from './styles'
+
 const RepositoriesPage = () => {
   return (
-    <h1>Repositories</h1>
+    <Container>
+      <Sidebar>
+        <Profile />
+        <Filter />
+      </Sidebar>
+      <Main>Main</Main>
+    </Container>
   )
 }
 
-export default RepositoriesPage;
+export default RepositoriesPage

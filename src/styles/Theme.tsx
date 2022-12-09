@@ -50,7 +50,7 @@ export const theme: DefaultTheme = {
     '3xl': rem(32),
     '4xl': rem(40),
     '5xl': rem(64),
-  }
+  },
 }
 
 interface ThemeProps {
