@@ -1,5 +1,6 @@
 import Filter from './Filter'
 import Profile from './Profile'
+import Repositories from './Repositories'
 
 import { Container, Sidebar, Main } from './styles'
 
@@ -10,7 +11,9 @@ const RepositoriesPage = () => {
         <Profile />
         <Filter />
       </Sidebar>
-      <Main>Main</Main>
+      <Main>
+        <Repositories />
+      </Main>
     </Container>
   )
 }
