@@ -95,13 +95,22 @@ const RepositoriesPage = () => {
     setCurrentLanguage(language)
   }
 
+  const onClickClearFilter = () => {
+    setCurrentLanguage('')
+  }
+
   return (
     <Container>
       <Sidebar>
         <ProfileContextProvider>
           <Profile user={user} />
         </ProfileContextProvider>
-        <Filter languages={stats} currentLanguage={currentLanguage} onClick={onFilterClick} />
+        <Filter
+          languages={stats}
+          currentLanguage={currentLanguage}
+          onClick={onFilterClick}
+          onClickClearFilter={onClickClearFilter}
+        />
       </Sidebar>
       <Main>
         <Repositories repositories={repositories} />

@@ -1,7 +1,7 @@
 import { Container, Selector, Cleaner } from './styles'
 import PropTypes from 'prop-types'
 
-const Filter = ({ languages, currentLanguage, onClick }) => {
+const Filter = ({ languages, currentLanguage, onClick, onClickClearFilter }) => {
   const selectors = languages.map(({ name, count, color }) => (
     <Selector
       key={name.toLowerCase()}
@@ -17,7 +17,7 @@ const Filter = ({ languages, currentLanguage, onClick }) => {
   return (
     <Container>
       {selectors}
-      <Cleaner>Limpar</Cleaner>
+      <Cleaner onClick={onClickClearFilter}>Limpar</Cleaner>
     </Container>
   )
 }
@@ -37,6 +37,7 @@ Filter.propTypes = {
   ).isRequired,
   currentLanguage: PropTypes.string,
   onClick: PropTypes.func,
+  onClickClearFilter: PropTypes.func,
 }
 
 export default Filter
