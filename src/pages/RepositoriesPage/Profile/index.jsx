@@ -38,7 +38,7 @@ const Profile = ({ user }) => {
   )
 }
 
-Profile.PropTypes = {
+Profile.propTypes = {
   user: PropTypes.shape({
     login: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
