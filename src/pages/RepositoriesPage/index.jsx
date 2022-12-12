@@ -21,36 +21,42 @@ const RepositoriesPage = () => {
 
   const repositories = [
     {
+      id: 1,
       name: 'Repo 1',
       description: 'Descricao',
       html_url: 'https://github.com/Dynylson',
       language: 'JavaScript',
     },
     {
+      id: 2,
       name: 'Repo 2',
       description: 'Descricao',
       html_url: 'https://github.com/Dynylson',
       language: 'JavaScript',
     },
     {
+      id: 3,
       name: 'Repo 3',
       description: 'Descricao',
       html_url: 'https://github.com/Dynylson',
       language: 'PHP',
     },
     {
+      id: 4,
       name: 'Repo 4',
       description: 'Descricao',
       html_url: 'https://github.com/Dynylson',
       language: 'Ruby',
     },
     {
+      id: 5,
       name: 'Repo 5',
       description: 'Descricao',
       html_url: 'https://github.com/Dynylson',
       language: 'TypeScript',
     },
     {
+      id: 6,
       name: 'Repo 6',
       description: 'Descricao',
       html_url: 'https://github.com/Dynylson',
@@ -90,7 +96,7 @@ const RepositoriesPage = () => {
         <Filter languages={stats} />
       </Sidebar>
       <Main>
-        <Repositories />
+        <Repositories repositories={repositories} />
       </Main>
     </Container>
   )
