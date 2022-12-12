@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { ProfileContextProvider } from '../../contexts/ProfileContext'
 import Filter from './Filter'
 import Profile from './Profile'
@@ -8,6 +10,8 @@ import { Container, Sidebar, Main } from './styles'
 import { langColors } from '../../services/config'
 
 const RepositoriesPage = () => {
+  const [currentLanguage, setCurrentLanguage] = useState()
+
   const user = {
     login: 'Dynylson',
     name: 'Dynylson Junior',
@@ -87,13 +91,17 @@ const RepositoriesPage = () => {
 
   // Calculo dos filters
 
+  const onFilterClick = (language) => {
+    setCurrentLanguage(language)
+  }
+
   return (
     <Container>
       <Sidebar>
         <ProfileContextProvider>
           <Profile user={user} />
         </ProfileContextProvider>
-        <Filter languages={stats} />
+        <Filter languages={stats} currentLanguage={currentLanguage} onClick={onFilterClick} />
       </Sidebar>
       <Main>
         <Repositories repositories={repositories} />
