@@ -96,7 +96,7 @@ const RepositoriesPage = () => {
   }
 
   const onClickClearFilter = () => {
-    setCurrentLanguage('')
+    setCurrentLanguage(undefined)
   }
 
   return (
