@@ -1,18 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { ProfileContextProvider } from '../../contexts/ProfileContext'
 import Filter from './Filter'
 import Profile from './Profile'
 import Repositories from './Repositories'
 
-import { Container, Sidebar, Main } from './styles'
+import { Loading, Container, Sidebar, Main } from './styles'
 
 import { langColors } from '../../services/config'
+import { getUser } from '../../services/api'
 
 const RepositoriesPage = () => {
+  const [user, setUser] = useState()
   const [currentLanguage, setCurrentLanguage] = useState()
+  const [loading, setLoading] = useState(true)
 
-  const user = {
+  useEffect(() => {
+    const loadData = async () => {
+      // getUser()
+
+      const [userResponse] = await Promise.all([getUser('Dynylson')])
+
+      setUser(userResponse.data)
+
+      setLoading(false)
+    }
+
+    loadData()
+  }, [])
+
+  const user2 = {
     login: 'Dynylson',
     name: 'Dynylson Junior',
     avatar_url: 'https://avatars.githubusercontent.com/u/94336147?v=4',
@@ -97,6 +114,10 @@ const RepositoriesPage = () => {
 
   const onClickClearFilter = () => {
     setCurrentLanguage(undefined)
+  }
+
+  if (loading) {
+    return <Loading>Carregando...</Loading>
   }
 
   return (
