@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import { useParams } from 'react-router-dom'
+
 import { ProfileContextProvider } from '../../contexts/ProfileContext'
 import Filter from './Filter'
 import Profile from './Profile'
@@ -11,6 +13,8 @@ import { langColors } from '../../services/config'
 import { getUser, getRepos, getLangsFrom } from '../../services/api'
 
 const RepositoriesPage = () => {
+  const { login } = useParams()
+
   const [user, setUser] = useState()
   const [repositories, setRepositories] = useState()
   const [languages, setLanguages] = useState()
@@ -20,8 +24,8 @@ const RepositoriesPage = () => {
   useEffect(() => {
     const loadData = async () => {
       const [userResponse, repositoriesResponse] = await Promise.all([
-        getUser('Dynylson'),
-        getRepos('Dynylson'),
+        getUser(login),
+        getRepos(login),
       ])
       setUser(userResponse.data)
       setRepositories(repositoriesResponse.data)
